@@ -1,0 +1,50 @@
+## Preliminaries ==============================================================
+library(readr)
+library(dplyr)
+library(tidyr)
+## Data import ================================================================
+
+pyramids <- read_csv("data/pyramid.csv")
+
+gdp_trend <- read_csv("data/Growth in GDP-Data Visualization_DemDiv.csv")
+
+gdp_cumsum <- read_csv("data/GDP per Capita-Data Visualization_DemDiv.csv")
+
+
+
+## Data clean =================================================================
+
+# add proportions
+pyramids %>% 
+  mutate(scenario = ifelse(scenario == "2050-EE", "2050_EE", scenario)) %>% 
+  mutate(scenario = ifelse(scenario == "2050 BAU", "2050_BAU", scenario)) %>% 
+  mutate(age.group = ifelse(age.group == '5-9', '05-09', age.group)) %>% 
+  spread(gender, population) %>% 
+  group_by(scenario) %>% 
+  mutate(total = sum(Female + Male),
+        female.p = Female/total*100,
+        male.p = Male/total*100) %>% 
+  gather(gender, proportion , 6:7) %>% 
+  select(age.group, scenario, gender, proportion) %>% 
+  unite(group, gender, scenario) %>% 
+  spread(group, proportion) %>% 
+  mutate(age.group = ifelse(age.group == '05-09','5-9', age.group)) -> pyramids
+
+# remove stray empty column
+gdp_trend <- gdp_trend[1:4]
+
+#rename columns
+names(gdp_trend) <- c("year",
+                      "Business_as_usual",
+                      "Economic_Emphasis", 
+                      "Comnibed_Econ_Educ_FP")
+# delete by $1 billion
+gdp_trend %>% 
+  mutate_at(vars(2:4), funs( ./1000000000))  ->
+  gdp_trend
+
+# remove empty row
+
+gdp_cumsum <- gdp_cumsum[1:4,]
+
+
