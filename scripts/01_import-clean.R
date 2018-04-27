@@ -10,7 +10,9 @@ gdp_trend <- read_csv("data/Growth in GDP-Data Visualization_DemDiv.csv")
 
 gdp_cumsum <- read_csv("data/GDP per Capita-Data Visualization_DemDiv.csv")
 
+investment  <- read_csv("data/Investment-Data Visualization_DemDiv.csv")
 
+hdi <- read_csv("data/HDI-Data Visualization_DemDiv.csv")
 
 ## Data clean =================================================================
 
@@ -44,7 +46,27 @@ gdp_trend %>%
   gdp_trend
 
 # remove empty row
-
 gdp_cumsum <- gdp_cumsum[1:4,]
 
+# remane values
+gdp_cumsum[2:4, 1] <-  c("2050 Business as usual",
+                         "2050 Economic Emphasis", 
+                         "2050 Comnibed Econ, Educ, FP")
+gdp_cumsum <- separate(gdp_cumsum, X1, into = c("year", "thing"), extra = "merge")
+gdp_cumsum <- separate(gdp_cumsum, thing, into = c("thing1", "thing2"), extra = "merge")
+#rename columns
+names(investment) <- c("year",
+                      "Business_as_usual",
+                      "Economic_Emphasis", 
+                      "Comnibed_Econ_Educ_FP")
+
+# hdi in 2013 is 182
+hdi <- rbind(list("2013 Baseline", 182),
+          hdi)
+# remane values
+hdi[2:4, 1] <-  c("2050 Business as usual",
+                         "2050 Economic Emphasis", 
+                         "2050 Comnibed Econ, Educ, FP")
+hdi <- separate(hdi, X1, into = c("year", "thing"), extra = "merge")
+hdi <- separate(hdi, thing, into = c("thing1", "thing2"), extra = "merge")
 
