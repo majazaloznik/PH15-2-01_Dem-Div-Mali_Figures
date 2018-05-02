@@ -4,13 +4,13 @@
 #' @param rx vector of female values (right)
 #' @param labels for age groups, if not provided 1:ncats will be used (useful for psftag)
 #' @param top.labels left,  and right = male,  female for example
-#' @param main 
+#' @param main mail title
 #' @param laxlab left axis labels, if not provideded, they are calculated from xlim
-#' @param raxlab 
-#' @param unit 
-#' @param lxcol 
-#' @param rxcol 
-#' @param gap 
+#' @param raxlab right axis labes, if not provideded, they are calculated from xlim
+#' @param unit x axis label e.g. %
+#' @param lxcol colour vector for left
+#' @param rxcol colour vector for right
+#' @param gap gap 
 #' @param space 
 #' @param ppmar 
 #' @param labelcex cex for axis labels

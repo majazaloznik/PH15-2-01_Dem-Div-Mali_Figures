@@ -126,24 +126,24 @@ axis(2, las = 2,
      labels = paste0("$", formatC(as.numeric(seq(0, 1000, 200)), 
                                   format="f", digits=0, big.mark=",")))
 
-text(2057, max(gdp_trend$Business_as_usual) + 25, 
+text(2057, max(gdp_trend$Business_as_usual) + 45, 
      "Business", 
      xpd = TRUE, cex = cex)
 text(2057, max(gdp_trend$Business_as_usual) - 30, 
      "as usual ", 
      xpd = TRUE, cex = cex)
 
-text(2057, max(gdp_trend$Economic_Emphasis) + 25, 
+text(2057, max(gdp_trend$Economic_Emphasis) + 35, 
      "Economic", 
      xpd = TRUE, cex = cex)
-text(2057, max(gdp_trend$Economic_Emphasis) - 30, 
+text(2057, max(gdp_trend$Economic_Emphasis) - 40, 
      "emphasis", 
      xpd = TRUE, cex = cex)
 
-text(2057, max(gdp_trend$Comnibed_Econ_Educ_FP) + 25, 
+text(2057, max(gdp_trend$Comnibed_Econ_Educ_FP) + 55, 
      "Combined", 
      xpd = TRUE, cex = cex)
-text(2057, max(gdp_trend$Comnibed_Econ_Educ_FP) - 30, 
+text(2057, max(gdp_trend$Comnibed_Econ_Educ_FP) - 20 ,
      "Econ, Educ, FP", 
      xpd = TRUE, cex = cex)
 
@@ -187,8 +187,8 @@ axis(2, las = 2,
                                   format="f", digits=0, big.mark=",")))
 
 text(x, -1200, gdp_cumsum[[1]][2:4], xpd = TRUE, cex = cex)
-text(x, -2500, gdp_cumsum[[2]][2:4], xpd = TRUE, cex = cex)
-text(x, -3800, gdp_cumsum[[3]][2:4], xpd = TRUE, cex = cex)
+text(x, -2700, gdp_cumsum[[2]][2:4], xpd = TRUE, cex = cex)
+text(x, -4200, gdp_cumsum[[3]][2:4], xpd = TRUE, cex = cex)
 text(9, gdp_cumsum[[4]][1] + 650, "2013", xpd = TRUE, cex = cex)
 text(9, gdp_cumsum[[4]][1] - 650, "Baseline", xpd = TRUE, cex = cex)
 mtext( "GDP per capita", 2, 4)
@@ -233,24 +233,24 @@ axis(2, las = 2,
      labels = paste0("$", formatC(as.numeric(seq(0, 5000, 1000)), 
                                   format="f", digits=0, big.mark=",")))
 
-text(2057, max(investment$Business_as_usual) + 120, 
+text(2057, max(investment$Business_as_usual) + 150, 
      "Business", 
      xpd = TRUE, cex = cex)
-text(2057, max(investment$Business_as_usual) - 120, 
+text(2057, max(investment$Business_as_usual) - 150, 
      "as usual ", 
      xpd = TRUE, cex = cex)
 
-text(2057, max(investment$Economic_Emphasis) + 120, 
+text(2057, max(investment$Economic_Emphasis) + 150, 
      "Economic", 
      xpd = TRUE, cex = cex)
-text(2057, max(investment$Economic_Emphasis) - 120, 
+text(2057, max(investment$Economic_Emphasis) - 150, 
      "emphasis", 
      xpd = TRUE, cex = cex)
 
-text(2057, max(investment$Comnibed_Econ_Educ_FP) + 120, 
+text(2057, max(investment$Comnibed_Econ_Educ_FP) + 150, 
      "Combined", 
      xpd = TRUE, cex = cex)
-text(2057, max(investment$Comnibed_Econ_Educ_FP) - 120, 
+text(2057, max(investment$Comnibed_Econ_Educ_FP) - 150, 
      "Econ, Educ, FP", 
      xpd = TRUE, cex = cex)
 
